@@ -1,0 +1,26 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+    string w;
+    cin>>w;
+    int uc=0,lc=0;
+    for(int i=0; i<w.size(); i++){
+        if(isupper(w[i])){
+            uc++;
+            }
+            else{
+            lc++;
+        }
+    }
+    if(uc>lc){
+        for(int i=0; i<w.size(); i++){
+            w[i]=toupper(w[i]);
+        }
+    }
+    else{
+        for(int i=0; i<w.size(); i++){
+            w[i]=tolower(w[i]);
+        }
+    }
+    cout<<w<<endl;
+
