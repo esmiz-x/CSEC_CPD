@@ -1,0 +1,20 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    int arry[4], calories = 0; 
+    
+    int ct[256] = {0}; 
+    for (int i = 0; i < 4; i++) {
+        cin >> arry[i];
+    }
+    string s;
+    cin >> s;
+    for (int i = 0; i < s.size(); i++) { 
+        ct[s[i]]++;
+    }
+    for (int i = 0; i < 4; i++) {
+        calories += ct[i + '1'] * arry[i]; 
+    }
+    cout << calories << "\n";
+}
