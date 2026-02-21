@@ -1,0 +1,32 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    string s;
+    cin >> s;
+
+    vector<char> v;
+    for (int i = 0; i < s.size(); i++) {
+        v.push_back(s[i]);
+    }
+
+    int minimum_wheel = 0;
+    char current = 'a';
+
+    for (int i = 0; i < v.size(); i++) {
+        char target = v[i];
+        int diff = abs(target - current);
+        
+        if (diff > 13) {
+            minimum_wheel += (26 - diff);
+        } else {
+            minimum_wheel += diff;
+        }
+        
+        current = target;
+    }
+
+    cout << minimum_wheel << endl;
+
+    return 0;
+}
