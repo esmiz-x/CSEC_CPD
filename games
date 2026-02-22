@@ -1,0 +1,28 @@
+#include <iostream>
+#include <vector>
+
+using namespace std;
+
+int main() {
+    int n;
+    cin >> n;
+    vector<pair<int, int>> teams(n);
+    for (int i = 0; i < n; i++) {
+        cin >> teams[i].first >> teams[i].second;
+    }
+
+    int guest_uniform_count = 0;
+
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < n; j++) {
+            if (i == j) continue; 
+            if (teams[i].first == teams[j].second) {
+                guest_uniform_count++;
+            }
+        }
+    }
+
+    cout << guest_uniform_count << endl;
+
+    return 0;
+}
