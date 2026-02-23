@@ -1,0 +1,14 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+    int y,w,d=0;
+    cin>>y>>w;
+    int mx=max(y,w);
+    for(int i=1; i<=6; i++){
+        if(i>=mx){
+            d++;
+        }
+    }
+    int g=__gcd(d,6);
+    cout<<d/g<<"/"<<6/g<<"\n";
+}
