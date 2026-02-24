@@ -1,0 +1,45 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+int main(){
+    int n;
+    cin >> n;
+    vector<int> v(n);
+    for(int i = 0; i < n; i++){
+        int x;
+        cin >> x;
+        v[i] = x;
+    }
+
+    int m;
+    cin >> m;
+    vector<pair<int,int>> vp(m);
+    for(int i = 0; i < m; i++){
+        int a, b;
+        cin >> a >> b;
+        vp[i] = {a, b};
+    }
+
+    for(int i = 0; i < m; i++){
+        int a = vp[i].first;
+        int b = vp[i].second;
+        
+        int wire_idx = a - 1; 
+
+        if (wire_idx - 1 >= 0) {
+            v[wire_idx - 1] += (b - 1);
+        }
+
+        if (wire_idx + 1 < n) {
+            v[wire_idx + 1] += (v[wire_idx] - b);
+        }
+
+        v[wire_idx] = 0;
+    }
+
+    for(int i = 0; i < n; i++){
+        cout << v[i] << "\n";
+    }
+
+    return 0;
+}
